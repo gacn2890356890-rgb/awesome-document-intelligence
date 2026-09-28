@@ -1,6 +1,6 @@
 <div align="center">
   
-# 🤖 Awesome Document Intelligence
+# 🚀 Awesome Document Intelligence 📄
 
 ### From pixels to structured knowledge, grounded reasoning, and document agents
 
