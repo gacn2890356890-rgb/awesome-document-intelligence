@@ -1,4 +1,6 @@
-# Awesome Document Intelligence
+<div align="center">
+  
+# 🤖 Awesome Document Intelligence
 
 ### From pixels to structured knowledge, grounded reasoning, and document agents
 
@@ -21,8 +23,6 @@
 </div>
 
 > A visual, source-traceable hub for document parsing, document understanding, visual document intelligence, and agentic reasoning.
-
-<div align="center">
 
 <img src="figures/fig01-document-intelligence-overview.png" alt="Document intelligence overview" width="100%">
 
