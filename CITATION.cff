@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "Awesome Document Intelligence"
+message: "If you use this repository, please cite the accompanying survey."
+type: dataset
+authors:
+  - family-names: Luo
+    given-names: Jia
+    affiliation: "Huazhong University of Science and Technology"
+    country: China
+repository-code: "https://github.com/<your-account>/awesome-document-intelligence"
+abstract: "A curated resource hub for document parsing, document understanding, visual document intelligence, and agentic reasoning."
+keywords:
+  - document parsing
+  - document understanding
+  - vision-language models
+  - document intelligence
+  - world models
+  - agentic reasoning

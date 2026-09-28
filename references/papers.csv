@@ -1,0 +1,23 @@
+area,title,year,link,role
+layout,LayoutLM,2020,https://doi.org/10.1145/3394486.3403172,text-layout pretraining
+layout,LayoutLMv2,2021,https://aclanthology.org/2021.findings-acl.201/,multimodal pretraining
+layout,LayoutLMv3,2022,https://aclanthology.org/2022.acl-long.250/,unified masking
+layout,DocLayNet,2022,https://arxiv.org/abs/2206.01062,layout benchmark
+ocr,CRNN,2015,https://arxiv.org/abs/1507.05717,scene text recognition
+ocr,TrOCR,2021,https://arxiv.org/abs/2109.10282,transformer OCR
+ocr-free,Donut,2022,https://arxiv.org/abs/2111.15664,direct structured generation
+ocr-free,Nougat,2023,https://arxiv.org/abs/2308.13418,scientific document conversion
+vlm,Pix2Struct,2023,https://proceedings.mlr.press/v202/kantorov-23a.html,screenshot parsing
+vlm,DocLLM,2024,https://aclanthology.org/2024.acl-long.463/,layout-aware generation
+vlm,Qwen2.5-VL,2025,https://arxiv.org/abs/2502.13923,general VLM
+tables,TableBank,2019,https://arxiv.org/abs/1903.01949,table benchmark
+tables,PubTables-1M,2021,https://arxiv.org/abs/2110.00061,table annotations
+vqa,DocVQA,2021,https://arxiv.org/abs/2007.00398,document QA
+vqa,InfoVQA,2022,https://arxiv.org/abs/2104.12723,information-seeking QA
+charts,ChartQA,2022,https://arxiv.org/abs/2203.10244,chart reasoning
+conversion,Docling,2025,https://arxiv.org/abs/2501.17887,open conversion
+conversion,olmOCR,2025,https://arxiv.org/abs/2502.18443,PDF extraction
+agents,ReAct,2023,https://openreview.net/forum?id=WE_vluYUL-X,reasoning and acting
+agents,mDocAgent,2025,https://arxiv.org/abs/2503.13964,multi-agent document understanding
+world-models,RAP,2023,https://aclanthology.org/2023.emnlp-main.507/,world-model planning
+rag,OCR Hinders RAG,2025,https://openaccess.thecvf.com/content/ICCV2025/html/Zhang_OCR_Hinders_RAG_Evaluating_the_Cascading_Impact_of_OCR_on_Retrieval-Augmented_Generation_ICCV_2025_paper.html,OCR downstream impact
