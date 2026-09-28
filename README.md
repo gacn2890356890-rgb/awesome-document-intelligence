@@ -215,13 +215,7 @@ Do not add private manuscripts, personal data, unverifiable leaderboard claims, 
 ## Citation
 
 ```bibtex
-@article{luo2026pixels,
-  title   = {From Pixels to Knowledge: A Survey of Document Parsing, Understanding, and Agentic Reasoning},
-  author  = {Luo, Jia},
-  journal = {Artificial Intelligence Review},
-  year    = {2026},
-  note    = {Survey repository accompanying the manuscript}
-}
+Work in progress; manuscript citation to be added after publication
 ```
 
 The repository is independent and is not affiliated with [Awesome VLA](https://github.com/yueen-ma/awesome-vla).
