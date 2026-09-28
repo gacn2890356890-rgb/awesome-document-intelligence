@@ -1,165 +1,216 @@
+<div align="center">
+
+<img src="figures/fig01-document-intelligence-overview.png" alt="Document intelligence overview" width="100%">
+
 # Awesome Document Intelligence
 
-> A curated hub for document parsing, document understanding, visual document intelligence, and agentic reasoning.
+### From pixels to structured knowledge, grounded reasoning, and document agents
 
-This repository accompanies the survey **From Pixels to Knowledge: A Survey of Document Parsing, Understanding, and Agentic Reasoning**. It follows the curated-list style of [Awesome VLA](https://github.com/yueen-ma/awesome-vla), while organizing the document field around a structured knowledge substrate:
+<p>
+  <a href="https://github.com/gacn2890356890-rgb/awesome-document-intelligence"><img src="https://img.shields.io/badge/curated-document%20intelligence-0072B2?style=for-the-badge" alt="Curated document intelligence"></a>
+  <a href="https://github.com/gacn2890356890-rgb/awesome-document-intelligence"><img src="https://img.shields.io/badge/263%20papers-indexed-E69F00?style=for-the-badge" alt="263 papers indexed"></a>
+  <a href="figures/"><img src="https://img.shields.io/badge/10%20survey%20figures-included-009E73?style=for-the-badge" alt="10 survey figures included"></a>
+  <a href="https://github.com/gacn2890356890-rgb/awesome-document-intelligence"><img src="https://img.shields.io/badge/open--source-resource%20hub-CC79A7?style=for-the-badge" alt="Open-source resource hub"></a>
+</p>
 
-**pixels → visual primitives → structural relations → semantic intent → grounded actions**
+<p>
+  <a href="#taxonomy">Taxonomy</a> ·
+  <a href="#papers">Papers</a> ·
+  <a href="#datasets">Datasets</a> ·
+  <a href="#evaluation">Evaluation</a> ·
+  <a href="#open-source-ecosystem">Open-source ecosystem</a> ·
+  <a href="#figures">Figures</a>
+</p>
 
-The repository is intended as a living index. Entries are linked to public papers, official project pages, benchmark pages, or source repositories whenever possible. The bibliography shipped with the survey is preserved under [`references/survey-references.bib`](references/survey-references.bib).
+</div>
 
-## Contents
+> A visual, source-traceable hub for document parsing, document understanding, visual document intelligence, and agentic reasoning.
 
-- [Definitions](#definitions)
-- [Taxonomy](#taxonomy)
-- [Timeline](#timeline)
-- [Papers and surveys](#papers-and-surveys)
-- [Datasets and benchmarks](#datasets-and-benchmarks)
-- [Evaluation](#evaluation)
-- [Tools and implementations](#tools-and-implementations)
-- [World models and document agents](#world-models-and-document-agents)
-- [Survey figures](#survey-figures)
-- [Contributing](#contributing)
-- [Citation](#citation)
+This repository accompanies the survey **From Pixels to Knowledge: A Survey of Document Parsing, Understanding, and Agentic Reasoning**. Its organization is inspired by [Awesome VLA](https://github.com/yueen-ma/awesome-vla): a compact definition layer, a field taxonomy, a chronological map, curated papers, datasets, tools, related surveys, and a contribution path.
 
-## Definitions
+<div align="center">
 
-### Document parsing
+**pixels** → **visual primitives** → **structural relations** → **semantic intent** → **grounded actions**
 
-Recovering machine-readable content and structure from document images or rendered pages, including text, regions, tables, formulas, reading order, and serialized outputs.
+</div>
 
-### Document understanding
+## Quick navigation
 
-Assigning semantic roles and relations to the recovered elements: forms, key-value pairs, references, arguments, charts, tables, and document-level questions.
+| 🧭 Explore | 📚 Evidence | 🧰 Build | 🔬 Research frontier |
+| --- | --- | --- | --- |
+| [Taxonomy](#taxonomy) · [Timeline](#timeline) | [Papers](#papers) · [Datasets](#datasets) | [Tools](#open-source-ecosystem) · [Evaluation](#evaluation) | [World models](#document-world-models) · [Agents](#document-world-models) |
 
-### Document intelligence
+## What is document intelligence?
 
-An end-to-end capability that combines perception, structure recovery, semantic reasoning, retrieval, verification, and task execution over documents.
+Document intelligence is the end-to-end recovery and use of meaning encoded in document pixels. It joins perception, structure, semantics, retrieval, verification, and interaction instead of treating OCR as an isolated preprocessing step.
 
-### Document world model
+### The structured knowledge substrate
 
-A structured, stateful representation of a document that supports entity and relation tracking, prediction of missing or inconsistent structure, active inspection, and grounded interaction. This is a research framing used by the survey; it should not be read as a claim that a single standard implementation already exists.
+| Layer | Core question | Typical artifacts |
+| --- | --- | --- |
+| 🎨 **Visual primitives** | What is visible? | pixels, regions, lines, symbols, text boxes |
+| 🧩 **Structural relations** | How is it organized? | reading order, hierarchy, table topology, formula syntax |
+| 🧠 **Semantic intent** | What does it mean? | document roles, entities, cross-references, arguments |
+| 🤖 **Grounded action** | What should the system do? | retrieval, verification, tool calls, structured answers |
 
 ## Taxonomy
 
 ### 1. Perception interface: pixels to primitives
 
-- Preprocessing and restoration: dewarping, denoising, deskewing, binarization, illumination correction.
-- Layout analysis: region detection, segmentation, reading-order cues, hierarchy.
-- OCR and text recognition: printed, handwritten, multilingual, scene, and dense text.
-- Formula and symbol recognition: image-to-markup, LaTeX, chemistry, music, historical scripts.
+<table>
+<tr>
+<td>🧹 <b>Preprocessing</b><br>dewarping · denoising · deskewing · restoration</td>
+<td>🗺️ <b>Layout analysis</b><br>regions · reading order · hierarchy · geometry</td>
+<td>🔤 <b>OCR and recognition</b><br>printed · handwritten · multilingual · dense text</td>
+<td>∑ <b>Symbols</b><br>formulas · charts · chemistry · music · scripts</td>
+</tr>
+</table>
 
 ### 2. Structural mechanisms: primitives to coherent documents
 
-- Reading order and hierarchy reconstruction.
-- Table detection, cell structure, and relational graphs.
-- Cross-page linking and document-level serialization.
-- OCR-free and VLM-based structured generation.
-- Hybrid systems that combine lightweight structure detection with high-fidelity recognition.
+- modular pipelines with explicit intermediate representations;
+- multimodal pretraining over text, layout, and pixels;
+- OCR-free and VLM-based structured generation;
+- table, formula, chart, and cross-page relation recovery;
+- decoupled hybrids that combine lightweight structure detection with high-fidelity recognition.
 
 ### 3. Semantic understanding and action
 
-- Visual question answering and information extraction.
-- Chart, table, and form reasoning.
-- Retrieval-augmented document analysis.
-- Verification, citation grounding, and self-correction.
-- Tool-using and multi-agent document workflows.
+- visual question answering and information extraction;
+- retrieval-augmented document analysis;
+- citation grounding, verification, and self-correction;
+- tool-using and multi-agent document workflows;
+- stateful document world models.
 
-### 4. Capability ladder
+### Capability ladder
 
-- **L1 — Rule/template parsing:** fixed schemas and engineered heuristics.
-- **L2 — Specific-element perception:** strong recognition of a defined symbol or element family.
-- **L2.5 — Relational parsing:** joint reasoning over text, tables, formulas, and spatial relations.
-- **L3 — Universal parsing:** one adaptable system across document types and output formats.
-- **L4 — Open-world symbol reasoning:** transfer to unfamiliar symbol systems and emergent document conventions.
+```text
+L4  Open-world symbol reasoning       unfamiliar symbols, rules, and semantic systems
+↑
+L3  Universal parsing                  one adaptable model, many document formats
+↑
+L2.5 Multi-element relational parsing text + table + formula + spatial relations
+↑
+L2  Specific-element perception       defined element families and symbols
+↑
+L1  Rule/template parsing              engineered priors and fixed schemas
+```
 
 ## Timeline
 
-| Period | Dominant direction | Representative resources |
+| Period | Field movement | Anchor resources |
 | --- | --- | --- |
-| 2015–2019 | CNN/RNN OCR, layout detection, table structure | [CRNN](https://arxiv.org/abs/1507.05717), [PubLayNet](https://arxiv.org/abs/1908.07836), [TableBank](https://arxiv.org/abs/1903.01949) |
-| 2020–2021 | Multimodal document pretraining and document VQA | [LayoutLM](https://doi.org/10.1145/3394486.3403172), [DocVQA](https://arxiv.org/abs/2007.00398), [LayoutLMv2](https://aclanthology.org/2021.findings-acl.201/) |
-| 2022–2023 | OCR-free generation and document foundation models | [Donut](https://arxiv.org/abs/2111.15664), [Nougat](https://arxiv.org/abs/2308.13418), [Pix2Struct](https://proceedings.mlr.press/v202/kantorov-23a.html) |
-| 2024–2025 | General VLMs, structured parsing, efficiency, and agents | [DocLLM](https://aclanthology.org/2024.acl-long.463/), [Docling](https://github.com/docling-project/docling), [olmOCR](https://github.com/allenai/olmocr) |
-| 2025–2026 | Decoupled hybrids, visual token efficiency, and interactive intelligence | See the curated lists in [`docs/resources.md`](docs/resources.md) and the survey figures in [`figures/`](figures/). |
+| **2015–2019** | CNN/RNN OCR, layout detection, table structure | [CRNN](https://arxiv.org/abs/1507.05717) · [PubLayNet](https://arxiv.org/abs/1908.07836) · [TableBank](https://arxiv.org/abs/1903.01949) |
+| **2020–2021** | multimodal document pretraining and document VQA | [LayoutLM](https://doi.org/10.1145/3394486.3403172) · [DocVQA](https://arxiv.org/abs/2007.00398) · [LayoutLMv2](https://aclanthology.org/2021.findings-acl.201/) |
+| **2022–2023** | OCR-free generation and document foundation models | [Donut](https://arxiv.org/abs/2111.15664) · [Nougat](https://arxiv.org/abs/2308.13418) · [Pix2Struct](https://proceedings.mlr.press/v202/kantorov-23a.html) |
+| **2024–2025** | general VLMs, structured parsing, efficiency, and agents | [DocLLM](https://aclanthology.org/2024.acl-long.463/) · [Docling](https://github.com/docling-project/docling) · [olmOCR](https://github.com/allenai/olmocr) |
+| **2025–2026** | decoupled hybrids, visual token efficiency, interactive intelligence | [World-model guide](docs/world-models-and-agents.md) · [Evaluation guide](docs/evaluation.md) |
 
-## Papers and surveys
+## Papers
 
-The first curated reading path is in [`docs/reading-list.md`](docs/reading-list.md). It is grouped by problem boundary rather than by model family:
+The visual reading path is in [`references/papers.md`](references/papers.md). The complete manuscript bibliography is preserved in [`references/survey-references.bib`](references/survey-references.bib) with 263 entries.
 
-1. document image analysis and layout;
-2. OCR and structured recognition;
-3. multimodal document understanding;
-4. tables, formulas, charts, and forms;
-5. efficient visual representations;
-6. agents, world models, and grounded reasoning.
+<table>
+<tr>
+<td>📐 <b>Layout</b><br><a href="https://doi.org/10.1145/3394486.3403172">LayoutLM</a> · <a href="https://aclanthology.org/2022.acl-long.250/">LayoutLMv3</a> · <a href="https://arxiv.org/abs/2206.01062">DocLayNet</a></td>
+<td>🔍 <b>OCR-free</b><br><a href="https://arxiv.org/abs/2111.15664">Donut</a> · <a href="https://arxiv.org/abs/2308.13418">Nougat</a> · <a href="https://proceedings.mlr.press/v202/kantorov-23a.html">Pix2Struct</a></td>
+</tr>
+<tr>
+<td>📊 <b>Tables and charts</b><br><a href="https://arxiv.org/abs/1903.01949">TableBank</a> · <a href="https://arxiv.org/abs/2110.00061">PubTables-1M</a> · <a href="https://arxiv.org/abs/2203.10244">ChartQA</a></td>
+<td>🤝 <b>Agents and world models</b><br><a href="https://openreview.net/forum?id=WE_vluYUL-X">ReAct</a> · <a href="https://aclanthology.org/2023.emnlp-main.507/">RAP</a> · <a href="https://arxiv.org/abs/2503.13964">mDocAgent</a></td>
+</tr>
+</table>
 
-The full survey bibliography is available as a machine-readable BibTeX file in [`references/survey-references.bib`](references/survey-references.bib).
+## Datasets
 
-## Datasets and benchmarks
+The full dataset map is in [`docs/datasets.md`](docs/datasets.md).
 
-See [`docs/datasets.md`](docs/datasets.md) for task definitions, public links, annotations, and selection risks. The main benchmark families are:
+<div align="center">
 
-- layout and region detection;
-- OCR and text recognition;
-- table and formula structure;
-- visually rich document understanding;
-- document question answering and chart reasoning;
-- end-to-end page parsing and document conversion;
-- long-document, multilingual, and out-of-distribution evaluation.
+| 🗺️ Layout | 🔤 OCR | 🧾 Forms | 📄 VQA | 📊 Tables/charts | 🧱 End-to-end |
+| --- | --- | --- | --- | --- | --- |
+| [PubLayNet](https://arxiv.org/abs/1908.07836)<br>[DocBank](https://arxiv.org/abs/2006.01038)<br>[DocLayNet](https://arxiv.org/abs/2206.01062) | [ICDAR RRC](https://rrc.cvc.uab.es/) | [FUNSD](https://guillaumejaume.github.io/FUNSD/) | [DocVQA](https://arxiv.org/abs/2007.00398)<br>[InfoVQA](https://arxiv.org/abs/2104.12723) | [TableBank](https://arxiv.org/abs/1903.01949)<br>[PubTables-1M](https://arxiv.org/abs/2110.00061)<br>[ChartQA](https://arxiv.org/abs/2203.10244) | [OmniDocBench](https://arxiv.org/abs/2412.07626) |
+
+</div>
 
 ## Evaluation
 
-See [`docs/evaluation.md`](docs/evaluation.md). A responsible evaluation should report more than a single score:
+The full protocol is in [`docs/evaluation.md`](docs/evaluation.md).
 
-- perception fidelity: CER/WER, IoU, mAP, symbol accuracy;
-- structural fidelity: TEDS, normalized edit distance, tree/graph consistency, reading-order accuracy;
-- semantic grounding: ANLS, exact match/F1, citation or evidence correctness;
-- robustness: resolution, scan quality, language, format, length, and unseen-layout stress tests;
-- systems: latency, memory, token count, cost, throughput, and failure recovery;
-- agentic behavior: tool success, verification success, correction rate, grounded action accuracy, and abstention/calibration.
-
-## Tools and implementations
-
-The resource map in [`docs/resources.md`](docs/resources.md) separates open-source converters, OCR engines, layout analyzers, VLMs, retrieval systems, and agent frameworks. A tool is listed as a resource, not as an endorsement; check its license, maintenance status, model-card limitations, and data terms before deployment.
-
-## World models and document agents
-
-The survey's world-model extension is documented in [`docs/world-models-and-agents.md`](docs/world-models-and-agents.md). The key design questions are:
-
-1. What is the typed state of a document page or document set?
-2. Which relations are observed, inferred, or uncertain?
-3. How can a system predict missing structure and detect contradictions?
-4. When should an agent zoom, retrieve, call OCR, render a page, or ask for verification?
-5. How should grounded reasoning be evaluated separately from fluent generation?
-
-## Survey figures
-
-All ten figures from the submitted survey version are included without redrawing:
-
-| Figure | Topic | File |
+| Layer | Metrics to report | Failure it exposes |
 | --- | --- | --- |
-| 1 | Document intelligence overview | [`fig01-document-intelligence-overview.png`](figures/fig01-document-intelligence-overview.png) |
-| 2 | PRISMA search and selection | [`fig02-prisma-flow.png`](figures/fig02-prisma-flow.png) |
-| 3 | Paradigm evolution | [`fig03-paradigm-evolution.png`](figures/fig03-paradigm-evolution.png) |
-| 4 | Representative VLM paradigms | [`fig04-vlm-paradigms.png`](figures/fig04-vlm-paradigms.png) |
-| 5 | Modular pipeline vs. end-to-end VLM | [`fig05-pipeline-vs-e2e.png`](figures/fig05-pipeline-vs-e2e.png) |
-| 6 | Paradigm trade-offs | [`fig06-paradigm-tradeoffs.png`](figures/fig06-paradigm-tradeoffs.png) |
-| 7 | Efficient document analysis | [`fig07-efficient-analysis.png`](figures/fig07-efficient-analysis.png) |
-| 8 | Vision-as-Text | [`fig08-vision-as-text.png`](figures/fig08-vision-as-text.png) |
-| 9 | Technology roadmap | [`fig09-technology-roadmap.png`](figures/fig09-technology-roadmap.png) |
-| 10 | L1–L4 capability hierarchy | [`fig10-capability-hierarchy.png`](figures/fig10-capability-hierarchy.png) |
+| 👁️ Perception | CER/WER · IoU · mAP · F1 | missed regions and wrong text |
+| 🧬 Structure | TEDS · normalized edit distance · graph F1 · reading-order accuracy | broken tables, hierarchy, and relations |
+| 🧠 Semantics | ANLS · EM/F1 · relation F1 · evidence correctness | unsupported or semantically wrong answers |
+| 🔁 Agent loop | tool success · correction rate · grounded action accuracy · abstention | wrong tool choice and unverified reasoning |
+| ⚡ Systems | latency · memory · tokens/page · cost/page · throughput | deployment and efficiency limits |
+
+## Open-source ecosystem
+
+These are public projects and implementation starting points, not endorsements. Check licenses, model cards, maintenance status, and data terms before deployment.
+
+<div align="center">
+
+<a href="https://github.com/docling-project/docling"><img src="https://img.shields.io/badge/Docling-document%20conversion-0072B2?style=for-the-badge&logo=github" alt="Docling"></a>
+<a href="https://github.com/PaddlePaddle/PaddleOCR"><img src="https://img.shields.io/badge/PaddleOCR-OCR%20%2B%20parsing-E69F00?style=for-the-badge&logo=github" alt="PaddleOCR"></a>
+<a href="https://github.com/opendatalab/MinerU"><img src="https://img.shields.io/badge/MinerU-document%20extraction-009E73?style=for-the-badge&logo=github" alt="MinerU"></a>
+<a href="https://github.com/allenai/olmocr"><img src="https://img.shields.io/badge/olmOCR-PDF%20extraction-CC79A7?style=for-the-badge&logo=github" alt="olmOCR"></a>
+
+<br>
+
+<a href="https://github.com/datalab-to/surya"><img src="https://img.shields.io/badge/Surya-multilingual%20analysis-56B4E9?style=for-the-badge&logo=github" alt="Surya"></a>
+<a href="https://github.com/datalab-to/marker"><img src="https://img.shields.io/badge/Marker-markdown%20conversion-0072B2?style=for-the-badge&logo=github" alt="Marker"></a>
+<a href="https://github.com/breezedeus/Pix2Text"><img src="https://img.shields.io/badge/Pix2Text-formula%20%2B%20text-E69F00?style=for-the-badge&logo=github" alt="Pix2Text"></a>
+<a href="https://github.com/QwenLM/Qwen2.5-VL"><img src="https://img.shields.io/badge/Qwen2.5--VL-general%20VLM-009E73?style=for-the-badge&logo=github" alt="Qwen2.5-VL"></a>
+
+</div>
+
+## Document world models
+
+<div align="center">
+
+<img src="figures/fig10-capability-hierarchy.png" alt="Hierarchical capability stack" width="96%">
+
+</div>
+
+The forward-looking design guide is in [`docs/world-models-and-agents.md`](docs/world-models-and-agents.md). A document world model treats a document as a typed, uncertain, stateful substrate:
+
+```text
+observe → build/update state → predict relations → choose tool → verify → act or abstain
+```
+
+## Figures
+
+All ten figures from the submitted survey version are preserved as original raster assets. Open any thumbnail for the full-resolution image.
+
+<table>
+<tr>
+<td><a href="figures/fig01-document-intelligence-overview.png"><img src="figures/fig01-document-intelligence-overview.png" alt="Figure 1 overview" width="100%"></a><br><b>Figure 1.</b> Document intelligence overview</td>
+<td><a href="figures/fig02-prisma-flow.png"><img src="figures/fig02-prisma-flow.png" alt="Figure 2 PRISMA flow" width="100%"></a><br><b>Figure 2.</b> PRISMA flow diagram</td>
+</tr>
+<tr>
+<td><a href="figures/fig03-paradigm-evolution.png"><img src="figures/fig03-paradigm-evolution.png" alt="Figure 3 paradigm evolution" width="100%"></a><br><b>Figure 3.</b> Paradigm evolution</td>
+<td><a href="figures/fig04-vlm-paradigms.png"><img src="figures/fig04-vlm-paradigms.png" alt="Figure 4 VLM paradigms" width="100%"></a><br><b>Figure 4.</b> Representative VLM paradigms</td>
+</tr>
+<tr>
+<td><a href="figures/fig05-pipeline-vs-e2e.png"><img src="figures/fig05-pipeline-vs-e2e.png" alt="Figure 5 pipeline versus end-to-end" width="100%"></a><br><b>Figure 5.</b> Pipeline versus end-to-end VLM</td>
+<td><a href="figures/fig06-paradigm-tradeoffs.png"><img src="figures/fig06-paradigm-tradeoffs.png" alt="Figure 6 paradigm trade-offs" width="100%"></a><br><b>Figure 6.</b> Paradigm trade-offs</td>
+</tr>
+<tr>
+<td><a href="figures/fig07-efficient-analysis.png"><img src="figures/fig07-efficient-analysis.png" alt="Figure 7 efficient document analysis" width="100%"></a><br><b>Figure 7.</b> Efficient document analysis</td>
+<td><a href="figures/fig08-vision-as-text.png"><img src="figures/fig08-vision-as-text.png" alt="Figure 8 vision as text" width="100%"></a><br><b>Figure 8.</b> Vision-as-Text</td>
+</tr>
+<tr>
+<td><a href="figures/fig09-technology-roadmap.png"><img src="figures/fig09-technology-roadmap.png" alt="Figure 9 technology roadmap" width="100%"></a><br><b>Figure 9.</b> Technology roadmap</td>
+<td><a href="figures/fig10-capability-hierarchy.png"><img src="figures/fig10-capability-hierarchy.png" alt="Figure 10 capability hierarchy" width="100%"></a><br><b>Figure 10.</b> L1–L4 capability hierarchy</td>
+</tr>
+</table>
 
 ## Contributing
 
-Please open a pull request with:
+Please open a pull request with the canonical title, authors, year, stable public link, taxonomy category, resource type, license/access notes, and a one-sentence reason for inclusion. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-- paper title, authors, year, and stable public link;
-- task category and whether a dataset, codebase, or benchmark is released;
-- license or access restrictions when known;
-- a one-sentence reason the resource belongs in the taxonomy.
-
-Do not add private manuscripts, unpublished results, personal data, or benchmark numbers that cannot be traced to a public source. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+Do not add private manuscripts, personal data, unverifiable leaderboard claims, or unsupported numbers.
 
 ## Citation
 
@@ -173,4 +224,4 @@ Do not add private manuscripts, unpublished results, personal data, or benchmark
 }
 ```
 
-The repository organization is inspired by [Awesome VLA](https://github.com/yueen-ma/awesome-vla). It is an independent document-intelligence resource and is not affiliated with that project.
+The repository is independent and is not affiliated with [Awesome VLA](https://github.com/yueen-ma/awesome-vla).
